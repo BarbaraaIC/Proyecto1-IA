@@ -24,12 +24,12 @@ class Tablero {
 }
 
 // Clase del menú
-class MenuRullo extends JFrame {  // ← ya no es pública
+class MenuRullo extends JFrame {
     private JComboBox<String> tamañoMatriz;
     private JRadioButton facilBtn, medioBtn, dificilBtn;
     private JButton iniciarBtn;
 
-    public MenuRullo() {  // ← nombre del constructor corregido
+    public MenuRullo() {
         setTitle("Configuración de Rullo:");
         setSize(400, 200);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -65,21 +65,25 @@ class MenuRullo extends JFrame {  // ← ya no es pública
     }
 
     private void iniciarJuego() {
-        String tamaño = (String) tamañoMatriz.getSelectedItem();
-        int filas = Integer.parseInt(tamaño.split("x")[0]);
-        int columnas = Integer.parseInt(tamaño.split("x")[1]);
+        String tamaño = (String) tamañoMatriz.getSelectedItem(); // Ej: "5x5"
+        String tamañoSolo = tamaño.split("x")[0];                // Extrae "5"
+        int tamañoInt = Integer.parseInt(tamañoSolo);            // Convierte a entero
+        int tamañoReal = tamañoInt + 1;                          // Incluye sumas
 
-        Dificultad dificultad = facilBtn.isSelected() ? Dificultad.FACIL :
-                                medioBtn.isSelected() ? Dificultad.MEDIA :
-                                dificilBtn.isSelected() ? Dificultad.DIFICIL : null;
+        String rango = facilBtn.isSelected() ? "(2-4)" :
+                       medioBtn.isSelected() ? "(1-9)" :
+                       dificilBtn.isSelected() ? "(1-19)" : null;
 
-        if (dificultad == null) {
+        if (rango == null) {
             JOptionPane.showMessageDialog(this, "Selecciona una dificultad");
             return;
         }
 
-        Tablero tablero = new Tablero(filas, columnas, dificultad);
-        tablero.imprimir();
+        String archivo = tamañoSolo + rango + ".txt";            // Ej: "5(1-9).txt"
+
+        // Abrir la ventana del tablero con tamaño real
+        new TableroFrame(archivo, tamañoReal).setVisible(true);
+        dispose();
     }
 }
 
