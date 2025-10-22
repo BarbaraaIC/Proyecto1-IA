@@ -3,7 +3,7 @@ import java.awt.*;
 import java.io.*;
 
 public class TableroFrame extends JFrame {
- 
+
     // Constructor que recibe el nombre del archivo y el tamaño del tablero
     public TableroFrame(String archivo, int tamaño) {
         setTitle("Tablero " + tamaño + "x" + tamaño);
