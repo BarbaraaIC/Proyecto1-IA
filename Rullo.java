@@ -1,12 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 
-// Enum para dificultad
 enum Dificultad {
     FACIL, MEDIA, DIFICIL
 }
 
-// Clase simulada para Tablero
 class Tablero {
     private int filas;
     private int columnas;
@@ -22,28 +20,24 @@ class Tablero {
         System.out.println("Tablero de " + filas + "x" + columnas + " con dificultad " + dificultad);
     }
 }
-
-// Clase del menú
-class MenuRullo extends JFrame {  // ← ya no es pública
+class MenuRullo extends JFrame { 
     private JComboBox<String> tamañoMatriz;
     private JRadioButton facilBtn, medioBtn, dificilBtn;
     private JButton iniciarBtn;
 
-    public MenuRullo() {  // ← nombre del constructor corregido
+    public MenuRullo() {  
         setTitle("Configuración de Rullo:");
         setSize(400, 200);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new GridLayout(3, 1));
 
-        // Panel tamaño
         JPanel tamañoPanel = new JPanel();
         tamañoPanel.add(new JLabel("Tamaño del tablero:"));
         tamañoMatriz = new JComboBox<>(new String[] { "5x5", "6x6", "7x7", "8x8" });
         tamañoPanel.add(tamañoMatriz);
         add(tamañoPanel);
 
-        // Panel dificultad
         JPanel dificultadPanel = new JPanel();
         dificultadPanel.add(new JLabel("Dificultad:"));
         facilBtn = new JRadioButton("2-4");
@@ -58,7 +52,6 @@ class MenuRullo extends JFrame {  // ← ya no es pública
         dificultadPanel.add(dificilBtn);
         add(dificultadPanel);
 
-        // Botón
         iniciarBtn = new JButton("Iniciar juego");
         iniciarBtn.addActionListener(e -> iniciarJuego());
         add(iniciarBtn);
@@ -82,8 +75,6 @@ class MenuRullo extends JFrame {  // ← ya no es pública
         tablero.imprimir();
     }
 }
-
-// Clase principal
 public class Rullo {
     public static void main(String[] args) {
         System.out.println("Welcome to Rullo!");
