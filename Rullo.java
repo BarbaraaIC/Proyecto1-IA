@@ -1,12 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
 
-// Enum para dificultad
+
 enum Dificultad {
     FACIL, MEDIA, DIFICIL
 }
 
-// Clase simulada para Tablero
 class Tablero {
     private int filas;
     private int columnas;
@@ -36,14 +35,13 @@ class MenuRullo extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new GridLayout(3, 1));
 
-        // Panel tamaño
+        
         JPanel tamañoPanel = new JPanel();
         tamañoPanel.add(new JLabel("Tamaño del tablero:"));
         tamañoMatriz = new JComboBox<>(new String[] { "5x5", "6x6", "7x7", "8x8" });
         tamañoPanel.add(tamañoMatriz);
         add(tamañoPanel);
 
-        // Panel dificultad
         JPanel dificultadPanel = new JPanel();
         dificultadPanel.add(new JLabel("Dificultad:"));
         facilBtn = new JRadioButton("2-4");
@@ -58,30 +56,29 @@ class MenuRullo extends JFrame {
         dificultadPanel.add(dificilBtn);
         add(dificultadPanel);
 
-        // Botón
         iniciarBtn = new JButton("Iniciar juego");
         iniciarBtn.addActionListener(e -> iniciarJuego());
         add(iniciarBtn);
     }
 
     private void iniciarJuego() {
-        String tamaño = (String) tamañoMatriz.getSelectedItem(); // Ej: "5x5"
-        String tamañoSolo = tamaño.split("x")[0];                // Extrae "5"
-        int tamañoInt = Integer.parseInt(tamañoSolo);            // Convierte a entero
-        int tamañoReal = tamañoInt + 1;                          // Incluye sumas
+        String tamaño = (String) tamañoMatriz.getSelectedItem(); 
+        String tamañoSolo = tamaño.split("x")[0];              
+        int tamañoInt = Integer.parseInt(tamañoSolo);            
+        int tamañoReal = tamañoInt + 1;                          
 
         String rango = facilBtn.isSelected() ? "(2-4)" :
-                       medioBtn.isSelected() ? "(1-9)" :
-                       dificilBtn.isSelected() ? "(1-19)" : null;
+                    medioBtn.isSelected() ? "(1-9)" :
+                    dificilBtn.isSelected() ? "(1-19)" : null;
 
         if (rango == null) {
             JOptionPane.showMessageDialog(this, "Selecciona una dificultad");
             return;
         }
 
-        String archivo = tamañoSolo + rango + ".txt";            // Ej: "5(1-9).txt"
+        String archivo = tamañoSolo + rango + ".txt";            
 
-        // Abrir la ventana del tablero con tamaño real
+        
         new TableroFrame(archivo, tamañoReal).setVisible(true);
         dispose();
     }
