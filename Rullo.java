@@ -91,3 +91,4 @@ public class Rullo {
         SwingUtilities.invokeLater(() -> new MenuRullo().setVisible(true));
     }
 }
+//ola
