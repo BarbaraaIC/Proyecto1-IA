@@ -4,7 +4,6 @@ import java.awt.*;
 enum Dificultad {
     FACIL, MEDIA, DIFICIL
 }
-
 class Tablero {
     private int filas;
     private int columnas;
