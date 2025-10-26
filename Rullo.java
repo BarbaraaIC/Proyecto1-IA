@@ -81,6 +81,7 @@ class MenuRullo extends JFrame {
         new TableroFrame(archivo, tamañoReal).setVisible(true);
         dispose();
     }
+    
 }
 
 // Clase principal
