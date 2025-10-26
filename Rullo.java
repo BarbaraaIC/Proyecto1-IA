@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 
-
 enum Dificultad {
     FACIL, MEDIA, DIFICIL
 }
@@ -82,6 +81,7 @@ class MenuRullo extends JFrame {
         new TableroFrame(archivo, tamañoReal).setVisible(true);
         dispose();
     }
+    
 }
 
 // Clase principal
@@ -92,3 +92,5 @@ public class Rullo {
     }
 }
 //ola x2
+
+//ola
