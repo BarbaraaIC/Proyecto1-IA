@@ -65,7 +65,7 @@ class MenuRullo extends JFrame {
         String tamaño = (String) tamañoMatriz.getSelectedItem(); 
         String tamañoSolo = tamaño.split("x")[0];              
         int tamañoInt = Integer.parseInt(tamañoSolo);            
-        int tamañoReal = tamañoInt + 1;                          
+        int tamañoReal = tamañoInt + 1;                        
 
         String rango = facilBtn.isSelected() ? "(2-4)" :
                     medioBtn.isSelected() ? "(1-9)" :
@@ -92,5 +92,6 @@ public class Rullo {
         SwingUtilities.invokeLater(() -> new MenuRullo().setVisible(true));
     }
 }
+//ola x2
 
 //ola

@@ -6,7 +6,7 @@ public class TableroFrame extends JFrame {
 
     // Constructor que recibe el nombre del archivo y el tamaño del tablero
     public TableroFrame(String archivo, int tamaño) {
-        setTitle("Tablero " + tamaño + "x" + tamaño);
+        setTitle("Tablero " + (tamaño - 1) + "x" + (tamaño-1));
         setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
