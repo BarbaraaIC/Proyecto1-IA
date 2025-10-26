@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 
-
 enum Dificultad {
     FACIL, MEDIA, DIFICIL
 }
