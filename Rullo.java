@@ -27,6 +27,7 @@ class MenuRullo extends JFrame {
     private JRadioButton facilBtn, medioBtn, dificilBtn;
     private JButton iniciarBtn;
 
+    @SuppressWarnings("unused")
     public MenuRullo() {
         setTitle("Configuración de Rullo:");
         setSize(400, 200);

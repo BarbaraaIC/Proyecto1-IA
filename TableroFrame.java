@@ -32,7 +32,7 @@ public class TableroFrame extends JFrame {
         
         // Botón para volver al menu
         JButton volver = new JButton("Volver al menu");
-        volver.addActionListener(e -> {
+        volver.addActionListener(_ -> {
             new MenuRullo().setVisible(true);
             dispose();
         });
